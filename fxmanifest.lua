@@ -13,16 +13,12 @@ shared_scripts {
 	'config.lua'
 }
 
-client_scripts {
-    'client/client.lua'
-} 
+client_script 'client/client.lua'
  
-server_scripts {
-    'server/server.lua'
-} 
+server_script 'server/server.lua'
 
 exports {
-	"ToggleHandsUp",
+    "ToggleHandsUp",
     "AreHandsUp",
     "IsZiptied"
 }
