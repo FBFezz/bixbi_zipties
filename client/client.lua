@@ -1,13 +1,6 @@
-ESX = nil
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(100)
-    end
-end)
-
 local isCuffed = false
 local handcuffTimer = {}
+
 RegisterNetEvent('bixbi_zipties:startZiptie')
 AddEventHandler("bixbi_zipties:startZiptie", function(targetId)
 	if (targetId == nil) then
@@ -200,17 +193,3 @@ function AreHandsUp(ped)
 	if (IsEntityPlayingAnim(ped, 'random@mugging3', 'handsup_standing_base', 3)) then return true end
 	return false
 end
---[[--------------------------------------------------
-Setup
---]]--------------------------------------------------
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler("esx:playerLoaded", function(xPlayer)
-    ESX.PlayerData = xPlayer
-	ESX.PlayerLoaded = true
-end)
-
-RegisterNetEvent('esx:onPlayerLogout')
-AddEventHandler('esx:onPlayerLogout', function()
-	ESX.PlayerLoaded = false
-	ESX.PlayerData = {}
-end)
